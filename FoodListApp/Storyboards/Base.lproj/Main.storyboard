@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="KeI-Ue-PEc">
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Food Items-->
+        <scene sceneID="Whk-do-Wwb">
+            <objects>
+                <viewController id="9nJ-Y4-lfl" customClass="FoodViewController" customModule="FoodListApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="1sX-Sl-bgF">
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on + icon to add food." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tks-ZT-iVO">
+                                <rect key="frame" x="16" y="172" width="358" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Swipe left to Edit &amp; Delete items" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="umT-5c-z2l">
+                                <rect key="frame" x="16" y="201" width="358" height="15.666666666666657"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="9qp-Go-FoM">
+                                <rect key="frame" x="16" y="268" width="358" height="542"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9nJ-Y4-lfl" id="pUm-pK-n3N"/>
+                                    <outlet property="delegate" destination="9nJ-Y4-lfl" id="KWH-H2-7Vi"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="pnc-rE-9ay"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pnc-rE-9ay" firstAttribute="trailing" secondItem="tks-ZT-iVO" secondAttribute="trailing" constant="16" id="0kB-Tg-esu"/>
+                            <constraint firstItem="tks-ZT-iVO" firstAttribute="top" secondItem="pnc-rE-9ay" secondAttribute="top" constant="29" id="BD5-zg-5AE"/>
+                            <constraint firstItem="tks-ZT-iVO" firstAttribute="leading" secondItem="pnc-rE-9ay" secondAttribute="leading" constant="16" id="EsM-cn-Gzf"/>
+                            <constraint firstItem="9qp-Go-FoM" firstAttribute="leading" secondItem="pnc-rE-9ay" secondAttribute="leading" constant="16" id="FLi-Ha-oXk"/>
+                            <constraint firstItem="9qp-Go-FoM" firstAttribute="top" secondItem="umT-5c-z2l" secondAttribute="bottom" constant="51.329999999999998" id="Kec-r3-4H7"/>
+                            <constraint firstItem="pnc-rE-9ay" firstAttribute="trailing" secondItem="umT-5c-z2l" secondAttribute="trailing" constant="16" id="Z93-og-JZo"/>
+                            <constraint firstItem="pnc-rE-9ay" firstAttribute="trailing" secondItem="9qp-Go-FoM" secondAttribute="trailing" constant="16" id="aOy-FL-7pf"/>
+                            <constraint firstItem="umT-5c-z2l" firstAttribute="top" secondItem="tks-ZT-iVO" secondAttribute="bottom" constant="5" id="fmd-uS-Lb3"/>
+                            <constraint firstItem="umT-5c-z2l" firstAttribute="leading" secondItem="pnc-rE-9ay" secondAttribute="leading" constant="16" id="m4K-RU-fgQ"/>
+                            <constraint firstItem="9qp-Go-FoM" firstAttribute="bottom" secondItem="pnc-rE-9ay" secondAttribute="bottom" id="vwc-Ur-V2Y"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="Food Items" id="kFf-Rq-f4C">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="qV7-rR-jff">
+                            <connections>
+                                <action selector="addBarButtonTapped:" destination="9nJ-Y4-lfl" id="LJm-Pm-sEX"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="foodItemsTableView" destination="9qp-Go-FoM" id="Pwc-gh-8Ls"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="3US-fK-7Bk" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="441.53846153846155" y="13.507109004739336"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bpU-ki-Ov1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="KeI-Ue-PEc" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="kLm-rP-OU5">
+                        <rect key="frame" x="0.0" y="47" width="390" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9nJ-Y4-lfl" kind="relationship" relationship="rootViewController" id="YZ8-iS-a15"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vey-hJ-GlG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-429" y="14"/>
+        </scene>
+    </scenes>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
