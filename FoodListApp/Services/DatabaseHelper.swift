@@ -40,5 +40,23 @@ class DatabaseHelper{
             oldDetails.subtitle = newDetails.subtitle
         }
     }
+    
+    func deleteAt<T:Object>(_ object:T){
+        try! realm .write({
+            realm.delete(object)
+        })
+    }
+    
+    func updateRow<T:Object>(_ object:T, with dictionary:[String:Any]){
+        do {
+            try! realm.write({
+                for (key, value) in dictionary {
+                    object.setValue(value, forKey: key)
+                }
+            })
+        }catch{
+            print(error.localizedDescription)
+        }
+    }
 }
 

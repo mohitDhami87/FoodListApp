@@ -114,6 +114,16 @@ extension FoodViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        self.foodListArray.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+//        self.foodListArray.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        let selectedPathData = self.foodListArray[sourceIndexPath.row]
+        let destinationPath = self.foodListArray[destinationIndexPath.row]
+        let dict1:[String:Any] = ["foodName":selectedPathData.foodName, "subtitle":selectedPathData.subtitle]
+        let dict2:[String:Any] = ["foodName":destinationPath.foodName, "subtitle":destinationPath.subtitle]
+
+        DatabaseHelper.shared.updateRow(destinationPath, with: dict1)
+        
+        DatabaseHelper.shared.updateRow(selectedPathData, with: dict2)
+        
+        self.foodItemsTableView.reloadData()
     }
 }
